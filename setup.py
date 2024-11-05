@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='cp2k_noshell',
+    name='ase-cp2k_noshell',
     version='0.1.0',
     author='Louie Slocombe',
     author_email='louies@hotmail.co.uk',
