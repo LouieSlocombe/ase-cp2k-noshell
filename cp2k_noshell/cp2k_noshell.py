@@ -1,16 +1,10 @@
-"""This module defines an ASE interface to CP2K.
-
-https://www.cp2k.org/
-Author: Louie Slocombe
-"""
-
 import os
 import os.path
 from warnings import warn
-import numpy as np
 
+import numpy as np
+from ase.calculators.calculator import FileIOCalculator
 from ase.units import Rydberg, Ha, Bohr
-from ase.calculators.calculator import FileIOCalculator, SCFError
 
 
 class CP2K(FileIOCalculator):
@@ -185,10 +179,10 @@ class CP2K(FileIOCalculator):
                          '_SECTION_PARAMETERS_ ON')
         # Add the total energy to the print section??
         root.add_keyword('FORCE_EVAL/PRINT/PROGRAM_RUN_INFO',
-                            '_SECTION_PARAMETERS_ ON')
+                         '_SECTION_PARAMETERS_ ON')
         # Add the number of atoms to the print section
         root.add_keyword('FORCE_EVAL/PRINT/TOTAL_NUMBERS',
-                            '_SECTION_PARAMETERS_ ON')
+                         '_SECTION_PARAMETERS_ ON')
 
         # all the rest...
         if p.print_level:
@@ -311,6 +305,7 @@ class CP2K(FileIOCalculator):
         # # check if SCF converged
         # if "SCF run NOT converged" in data:
         #     raise SCFError()
+
 
 class InputSection:
     """Represents a section of a CP2K input file"""
